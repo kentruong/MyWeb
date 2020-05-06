@@ -1,0 +1,157 @@
+<v-app-bar app class="pa-0">
+    <v-container fluid class="pa-0">
+        <v-row no-gutters>
+            <v-col cols="12" md="12">
+                <div class="container-header d-flex align-center justify-space-between">
+                    <div class="d-flex align-center group-logo">
+                        <div class="logo flex-center">
+                            <router-link :to="{name: 'Home'}">
+                                <v-avatar size="40">
+                                    <img src="@/assets/images/logo.png" alt="Zsolution">
+                                </v-avatar>
+                            </router-link>
+
+                        </div>
+                        <div class="topSearch d-flex align-center justify-space-between px-2">
+                            <!-- <input type="text" placeholder="Enter key search ..." class="input-search flex-1 px-2">
+                        <i class="fas fa-search icon-search mr-1"></i> -->
+                            <v-text-field placeholder="Tìm kiếm ..." dense outlined rounded append-icon="search" class="txt-search mb-0 mt-2"></v-text-field>
+                        </div>
+                    </div>
+                    <div class="menu-top flex-center">
+                        <v-item-group mandatory>
+                            <ul class="ul-menu-top pa-0 flex-center">
+                                <!-- <li class="pa-2" :class="{'active' : currenRoute == 'Home'}">
+                            <a href="#" class="flex-center">
+                                <i class="fas fa-home top-icon"></i>
+                            </a>
+                        </li> -->
+                                <li v-for="n in menus" v-ripple>
+                                    <v-item v-slot:default="{ active, toggle }">
+                                        <div class="" :color="active ? 'primary' : ''" dark @click="toggle">
+                                            <!-- {{ n.icon }} -->
+                                            <div v-if="active" class="px-8 py-4 cu-p items li-active">
+                                                <a href="#">
+                                                    <span class="material-icons">{{ n.icon }}</span>
+                                                </a>
+                                            </div>
+                                            <div v-else class="px-8 py-4 cu-p items">
+                                                <a href="#">
+                                                    <span class="material-icons">{{ n.icon }}</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </v-item>
+                                </li>
+
+                                <!-- <li v-ripple color="primary" v-for="(i, index) in menus">
+
+                                    <v-item v-slot:default="{ active, toggle }">
+                                        <div class="px-8 py-4 cu-p items" :color="active ? 'primary' : ''" @click="toggle">
+                                            <a href="#">
+                                                <span class="material-icons">{{ i.icon }}</span>
+                                            </a>
+                                        </div>
+                                    </v-item>
+
+
+                                </li> -->
+
+                                <!-- <li class="px-8 py-4 cu-p" v-ripple="{ center: false }">
+                                <a href="#">
+                                    <span class="material-icons">description</span>
+                                </a>
+                            </li>
+                            <li class="px-8 py-4 cu-p" v-ripple="{ center: false }">
+                                <a href="#">
+                                    <span class="material-icons">live_tv</span>
+                                </a>
+                            </li>
+                            <li class="px-8 py-4 cu-p" v-ripple="{ center: false }">
+                                <a href="#">
+                                    <span class="material-icons">textsms</span>
+                                </a>
+                            </li> -->
+                            </ul>
+                        </v-item-group>
+                    </div>
+                    <v-theme-provider root>
+                        <div class="info-user d-flex justify-end align-center">
+                            <v-avatar size="40">
+                                <img src="https://image-1.gapo.vn/images/edfef696-3b86-435f-accf-8f1410362c4f.jpeg" alt="Zsolution">
+                            </v-avatar>
+                            <span class="name mx-2 subtitle-1 font-weight-bold text-capitalize" v-html="linkFacebook"></span>
+                            <!-- <v-badge color="red" content="0"> <span class="icon-notifycation"><i
+                                                class="far fa-bell"></i></span> </v-badge> -->
+                            <v-btn small outlined fab class="mx-1">
+                                <i class="fab fa-facebook-messenger"></i>
+                            </v-btn>
+                            <v-btn small outlined fab class="mx-1">
+                                <i class="fas fa-bell"></i>
+                            </v-btn>
+                            <div class="text-center">
+                                <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="400" :nudge-right="15" offset-y transition="slide-x-transition" bottom right>
+                                    <template v-slot:activator="{ on }">
+                                        <v-btn small outlined fab v-on="on" class="ml-1">
+                                            <i class="fas fa-caret-down"></i>
+                                        </v-btn>
+                                    </template>
+                                    <v-card>
+                                        <v-list>
+                                            <v-list-item>
+                                                <v-list-item-avatar>
+                                                    <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
+                                                </v-list-item-avatar>
+
+                                                <v-list-item-content>
+                                                    <v-list-item-title class="text-left">John Leider</v-list-item-title>
+                                                    <v-list-item-subtitle class="text-left">Founder of Vuetify.js</v-list-item-subtitle>
+                                                </v-list-item-content>
+
+                                                <v-list-item-action>
+                                                    <v-btn :class="fav ? 'red--text' : ''" icon @click="fav = !fav">
+                                                        <v-icon>mdi-heart</v-icon>
+                                                    </v-btn>
+                                                </v-list-item-action>
+                                            </v-list-item>
+                                        </v-list>
+
+                                        <v-divider></v-divider>
+
+                                        <v-list>
+                                            <v-list-item>
+                                                <v-list-item-title class="text-left">Chế Độ Tối</v-list-item-title>
+                                                <v-list-item-action>
+                                                    <!-- <v-switch v-model="message" color="purple"></v-switch> -->
+                                                    <v-switch v-model="$vuetify.theme.dark"></v-switch>
+                                                </v-list-item-action>
+
+                                            </v-list-item>
+
+                                            <v-list-item>
+                                                <v-list-item-action>
+                                                    <v-switch v-model="hints" color="purple"></v-switch>
+                                                </v-list-item-action>
+                                                <v-list-item-title class="text-left">Enable hints</v-list-item-title>
+                                            </v-list-item>
+                                        </v-list>
+
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+
+                                            <v-btn text @click="menu = false">Cancel</v-btn>
+                                            <v-btn color="primary" text @click="menu = false">Save</v-btn>
+                                        </v-card-actions>
+                                    </v-card>
+                                </v-menu>
+                            </div>
+                        </div>
+                    </v-theme-provider>
+                </div>
+            </v-col>
+            <!-- <v-col cols="12" md="12">
+                <v-progress-linear indeterminate color="cyan"></v-progress-linear>
+            </v-col> -->
+        </v-row>
+    </v-container>
+</v-app-bar>

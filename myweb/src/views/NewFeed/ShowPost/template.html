@@ -1,0 +1,6 @@
+<div class="mb-4 pa-4" v-if="createPost == true">
+    <p class="mb-0">{{ customName }}</p>
+    <p class="mb-0">createPost : {{ createPost }}</p>
+    <!-- <p class="mb-0">{{ reverseName() }}</p> -->
+    <v-btn outlined color="primary" dark @click="hidePost()" class="text-capitalize mt-4"><i class="far fa-eye mr-1"></i> Reverse Name</v-btn>
+</div>

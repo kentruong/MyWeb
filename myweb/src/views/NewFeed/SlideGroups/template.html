@@ -1,0 +1,24 @@
+<v-slide-group v-model="model" class="pa-0" :prev-icon="prevIcon ? 'mdi-minus' : undefined" :next-icon="nextIcon ? 'mdi-plus' : undefined" :multiple="multiple" :mandatory="mandatory" :show-arrows="showArrows" :center-active="centerActive">
+    <v-slide-item v-for="(item,index) in listSlide" :key="index" v-slot:default="{ active, toggle }">
+        <v-card :color="active ? 'primary' : 'black'" class="ma-4" height="200" width="130" @click="toggle">
+            <v-row class="fill-height" justify="center" width="130px">
+                <!-- <v-scale-transition>
+                    <v-icon v-if="active" color="white" size="48" v-text="'mdi-close-circle-outline'"></v-icon>
+                </v-scale-transition> -->
+                <!-- <div :style="{ backgroundImage: { url(item.images) }" class="image-slide"></div> -->
+                <!-- <div class="image-slide" :style="{ backgroundImage: { url('item.image') }"></div> -->
+                <!-- <div class="image-slide" :style="{ backgroundImage: `url(${item.images})` }"></div> -->
+                <!-- <p class="name">{{ item.name }}</p> -->
+
+                <v-img :aspect-ratio="16/9" :src="item.images">
+                    <v-row align="end" class="lightbox white--text px-2 fill-height">
+                        <v-col>
+                            <div class="subheading font-weight-bold text-left">{{ item.name }}</div>
+                            <div class="body-1 text-left">Lạc Trôi ...</div>
+                        </v-col>
+                    </v-row>
+                </v-img>
+            </v-row>
+        </v-card>
+    </v-slide-item>
+</v-slide-group>
