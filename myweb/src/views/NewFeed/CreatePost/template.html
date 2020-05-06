@@ -1,7 +1,7 @@
 <div class="text-center">
     <v-dialog v-model="dialog" width="500">
         <template v-slot:activator="{ on }">
-            <v-card class="pa-4"  v-on="on">
+            <v-card class="pa-4" v-on="on">
                 <div class="d-flex align-center">
                     <v-avatar size="40">
                         <img src="https://66.media.tumblr.com/avatar_195f890be964_128.pnj" alt="John">
@@ -46,16 +46,20 @@
                                     </v-avatar>
                                     <span class="ml-2"><a :href="linkFacebook" target="_blank">Ken Truong</a></span>
                                 </div>
-                                <textarea name="" id="" cols="30" rows="5" placeholder="Ken ơi bạn đang nghĩ gì thế ?" class="txt-content-creat-post" @input="changValue"></textarea>
+                                <textarea name="" id="" cols="30" rows="5" placeholder="Ken ơi bạn đang nghĩ gì thế ?"
+                                    class="txt-content-creat-post" v-model="itemPost.content" @input="changValue"></textarea>
                             </div>
                             <div class="container-choose-background d-flex align-center justify-space-between">
                                 <div class="choose-background" v-if="chooseBackground == true">
-                                    <v-btn class="" fab dark small color="pink" @click="chooseBackground = !chooseBackground">
+                                    <v-btn class="" fab dark small color="pink"
+                                        @click="chooseBackground = !chooseBackground">
                                         <span class="material-icons">style</span>
                                     </v-btn>
                                 </div>
                                 <div class="show-choose-background" v-else>
-                                    <v-btn class="mr-2" fab dark small :color="b.color" @click="chooseBackground = !chooseBackground" v-for="(b,index) in backgrounds" :key="index">
+                                    <v-btn class="mr-2" fab dark small :color="b.color"
+                                        @click="chooseBackground = !chooseBackground" v-for="(b,index) in backgrounds"
+                                        :key="index">
                                         <span class="material-icons">{{ b.icon }}</span>
                                     </v-btn>
                                 </div>
@@ -65,7 +69,7 @@
                                     </v-btn>
                                 </div>
                             </div>
-                            <div class="container-add-for-content d-flex align-center justify-space-between pa-4 mt-4">
+                            <!-- <div class="container-add-for-content d-flex align-center justify-space-between pa-4 mt-4">
                                 <span>Thêm vào bài viết</span>
                                 <div class="d-flex align-center">
                                     <span class="cu-p material-icons mx-2 green--text">wallpaper</span>
@@ -74,13 +78,28 @@
                                     <span class="cu-p material-icons mx-2 red--text">place</span>
                                     <i class="cu-p fas fa-ellipsis-h"></i>
                                 </div>
+                                <v-text-field placeholder="Enter link images" single-line outlined dense></v-text-field>
+                            </div> -->
+                            <div class="container-add-for-content px-4 pt-4 mt-4">
+                                <div class="d-flex align-center justify-space-between">
+                                    <div class="mb-4">Thêm vào bài viết</div>
+                                    <div class="d-flex align-center mb-4">
+                                        <span class="cu-p material-icons mx-2 green--text" @click="setLinkImage = true">wallpaper</span>
+                                        <span class="cu-p material-icons mx-2 cyan--text">gif</span>
+                                        <span class="cu-p material-icons mx-2 blue--text">person_add</span>
+                                        <span class="cu-p material-icons mx-2 red--text">place</span>
+                                        <i class="cu-p fas fa-ellipsis-h"></i>
+                                    </div>
+                                </div>
+                                <v-text-field v-if="setLinkImage == true" v-model="itemPost.linkImage" placeholder="Enter link images" single-line outlined dense></v-text-field>
                             </div>
                         </v-card-text>
 
                         <v-divider></v-divider>
 
                         <v-card-actions class="pa-4">
-                            <v-btn block color="primary" dark @click="functionCreatePost()" class="text-capitalize font-weight-bold">Đăng</v-btn>
+                            <v-btn block color="primary" dark @click="functionCreatePost()"
+                                class="text-capitalize font-weight-bold">Đăng</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-stepper-content>
@@ -95,7 +114,8 @@
                         <v-divider></v-divider>
                         <v-card-text class="text-left">
                             <v-card-text class="title py-0">Ai có thể xem bài viết của bạn ?</v-card-text>
-                            <v-card-text class="subtitle py-0">Bài viết của bạn sẽ hiển thị trong Bảng tin, trên trang cá nhân và trong kết quả tìm kiếm.</v-card-text>
+                            <v-card-text class="subtitle py-0">Bài viết của bạn sẽ hiển thị trong Bảng tin, trên trang
+                                cá nhân và trong kết quả tìm kiếm.</v-card-text>
                             <v-list>
                                 <v-list-item-group v-model="model" multiple color="blue">
                                     <v-list-item v-for="(item, i) in items" :key="i">

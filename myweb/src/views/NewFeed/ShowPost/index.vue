@@ -9,11 +9,16 @@ export default {
 	},
 	data: () => ({
 		createPost: false,
+		postContent: [],
 	}),
 	created: function () {
 		this.$vueEventBus.$on(
 			"createPost",
 			val => (this.createPost = val)
+		);
+		this.$vueEventBus.$on(
+			"contentPost",
+			val => (this.postContent = val)
 		);
 	},
 	methods: {
@@ -35,5 +40,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+	.show-post .img-content-post{
+		width: 100%;
+		height: auto;
+	}
 </style>

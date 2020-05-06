@@ -1,14 +1,14 @@
-<div class="container-newfeed">
+<div class="container-newfeed mb-4">
     <TopBar />
     <v-container fluid class="px-0 pt-1 pb-0">
         <v-row no-gutters>
             <v-col cols="12" md="3">
                 <div class="container-left-bar d-flex justify-start">
-                    <div class="left-bar d-flex justify-start" style="background-color: red;height: 100vh;"></div>
+                    <div class="left-bar d-flex justify-start"></div>
                 </div>
             </v-col>
             <v-col cols="12" md="6">
-                <div class="container-content-center d-flex justify-center" style="height: 100vh; width: 100%;">
+                <div class="container-content-center d-flex justify-center">
                     <div class="content-center">
                         <div class="slide-groups pt-2 pb-4">
                             <SlideGroups />
@@ -17,8 +17,8 @@
                             <CreatePost />
                         </div>
                         <v-card>
-                            <v-btn outlined color="primary" dark @click="Post()" class="text-capitalize mt-4"><i class="far fa-eye mr-1"></i> Show Demo</v-btn>
-                            <ShowPost :showPost="statusPost" :customName="name" @closePost="closePost()" />{{statusPost}}
+                            <!-- <v-btn outlined color="primary" dark @click="Post()" class="text-capitalize mt-4"><i class="far fa-eye mr-1"></i> Show Demo</v-btn> -->
+                            <ShowPost :showPost="statusPost" :customName="name" @closePost="closePost()" />
                         </v-card>
                         <v-card>
                             <v-skeleton-loader ref="skeleton" :boilerplate="boilerplate" :type="type" :tile="tile" class="mx-auto"></v-skeleton-loader>
@@ -31,7 +31,7 @@
             </v-col>
             <v-col cols="12" md="3">
                 <div class="container-right-bar d-flex justify-end">
-                    <div class="right-bar d-flex justify-end" style="background-color: yellow;height: 100vh;"></div>
+                    <div class="right-bar d-flex justify-end"></div>
                 </div>
             </v-col>
         </v-row>
