@@ -82,10 +82,10 @@
 
 .left-bar {
     background-color: red;
-    height: 100vh;
+    height: calc(100vh - 26px);
     position: fixed;
     left: 0px;
-    top: 0px;
+    top: 26px;
 }
 
 
@@ -96,10 +96,10 @@
 
 .right-bar {
     background-color: yellow;
-    height: 100vh;
+    height: calc(100vh - 26px);
     position: fixed;
     right: 0px;
-    top: 0px;
+    top: 26px;
 }
 
 
