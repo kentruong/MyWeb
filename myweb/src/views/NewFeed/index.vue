@@ -32,15 +32,21 @@ export default {
 		types: [],
 		statusPost: false,
 		name: '',
+		quanlydo: false,
+		loadingButton: false,
 	}),
 	methods: {
-		closePost(){
+		closePost() {
 			console.log('Con truyền lên Cha');
 			this.statusPost = false;
 		},
 		Post() {
 			this.statusPost = !this.statusPost
 			this.name = 'New Your Name'
+		},
+		reload(){
+			this.loadingButton = !this.loadingButton;
+			location.reload();
 		}
 	},
 	beforeDestroy() {

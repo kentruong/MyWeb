@@ -7,7 +7,7 @@
                         <img src="https://66.media.tumblr.com/avatar_195f890be964_128.pnj" alt="John">
                     </v-avatar>
                     <div class="flex-1 text-left px-4 py-2 ml-2 div-question" v-ripple="{ class: 'blue--text' }">
-                        <span class="grey--text text--lighten-1">{{text}}</span>
+                        <span class="grey--text text--lighten-1">{{placeholders}}</span>
                     </div>
                 </div>
                 <div class="choose-add-content d-flex align-center justify-space-between px-8 py-4 mt-4">
@@ -46,20 +46,16 @@
                                     </v-avatar>
                                     <span class="ml-2"><a :href="linkFacebook" target="_blank">Ken Truong</a></span>
                                 </div>
-                                <textarea name="" id="" cols="30" rows="5" placeholder="Ken ơi bạn đang nghĩ gì thế ?"
-                                    class="txt-content-creat-post" v-model="itemPost.content" @input="changValue"></textarea>
+                                <textarea name="" id="" cols="30" rows="5" placeholder="Ken ơi bạn đang nghĩ gì thế ?" class="txt-content-creat-post" v-model="itemPost.content" @input="changValue"></textarea>
                             </div>
                             <div class="container-choose-background d-flex align-center justify-space-between">
                                 <div class="choose-background" v-if="chooseBackground == true">
-                                    <v-btn class="" fab dark small color="pink"
-                                        @click="chooseBackground = !chooseBackground">
-                                        <span class="material-icons">style</span>
+                                    <v-btn class="" fab dark small :color="styleBackground.color" @click="chooseBackground = !chooseBackground">
+                                        <span class="material-icons">{{ styleBackground.icon }}</span>
                                     </v-btn>
                                 </div>
                                 <div class="show-choose-background" v-else>
-                                    <v-btn class="mr-2" fab dark small :color="b.color"
-                                        @click="chooseBackground = !chooseBackground" v-for="(b,index) in backgrounds"
-                                        :key="index">
+                                    <v-btn class="mr-2" fab dark small :color="b.color" v-for="(b,index) in backgrounds" @click="chooseBackgroundsId(b.color,b.icon)" :key="index">
                                         <span class="material-icons">{{ b.icon }}</span>
                                     </v-btn>
                                 </div>
@@ -98,8 +94,7 @@
                         <v-divider></v-divider>
 
                         <v-card-actions class="pa-4">
-                            <v-btn block color="primary" dark @click="functionCreatePost()"
-                                class="text-capitalize font-weight-bold">Đăng</v-btn>
+                            <v-btn block color="primary" dark @click="functionCreatePost()" class="text-capitalize font-weight-bold">Đăng</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-stepper-content>
@@ -114,8 +109,7 @@
                         <v-divider></v-divider>
                         <v-card-text class="text-left">
                             <v-card-text class="title py-0">Ai có thể xem bài viết của bạn ?</v-card-text>
-                            <v-card-text class="subtitle py-0">Bài viết của bạn sẽ hiển thị trong Bảng tin, trên trang
-                                cá nhân và trong kết quả tìm kiếm.</v-card-text>
+                            <v-card-text class="subtitle py-0">Bài viết của bạn sẽ hiển thị trong Bảng tin, trên trang cá nhân và trong kết quả tìm kiếm.</v-card-text>
                             <v-list>
                                 <v-list-item-group v-model="model" multiple color="blue">
                                     <v-list-item v-for="(item, i) in items" :key="i">

@@ -10,9 +10,15 @@ export default new Router({
             path: '/',
             name: 'Home',
             component: NewFeed
-        }, {
+        },
+        {
             path: '/new-feed',
             name: 'NewFeed',
+            component: NewFeed
+        },
+        {
+            path: '/reload',
+            name: 'Reload',
             component: NewFeed
         },
         // {

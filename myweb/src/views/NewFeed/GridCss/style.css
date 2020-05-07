@@ -1,0 +1,11 @@
+.container-grid-css .content {
+    margin: 0 auto;
+}
+
+.container-grid-css .content div {
+    background: #03A9F4;
+}
+
+.container-grid-css .content div:nth-child(even) {
+    background: #E91E63;
+}

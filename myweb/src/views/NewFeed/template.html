@@ -16,15 +16,20 @@
                         <div class="create-post mb-4">
                             <CreatePost />
                         </div>
+
+                        <!-- <v-btn outlined color="primary" dark @click="Post()" class="text-capitalize mt-4"><i class="far fa-eye mr-1"></i> Show Demo</v-btn> -->
+                        <ShowPost :showPost="statusPost" :customName="name" @closePost="closePost()" />
                         <v-card>
-                            <!-- <v-btn outlined color="primary" dark @click="Post()" class="text-capitalize mt-4"><i class="far fa-eye mr-1"></i> Show Demo</v-btn> -->
-                            <ShowPost :showPost="statusPost" :customName="name" @closePost="closePost()" />
+                            <GridCss />
                         </v-card>
                         <v-card>
                             <v-skeleton-loader ref="skeleton" :boilerplate="boilerplate" :type="type" :tile="tile" class="mx-auto"></v-skeleton-loader>
                         </v-card>
                         <v-card>
-                            <GridCss />
+                            <div class="pa-4 mt-4 text-center">
+                                <p class="text-center blue--text headline">You need reload YourNewfeed</p>
+                                <v-btn outlined color="primary" @click="reload()">Reload</v-btn>
+                            </div>
                         </v-card>
                     </div>
                 </div>

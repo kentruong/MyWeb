@@ -1,17 +1,57 @@
-<div class="mb-4 show-post" v-if="createPost == true">
-    <div class="px-4 pt-4 d-flex align-center">
-        <v-avatar size="40">
-            <img src="https://66.media.tumblr.com/avatar_195f890be964_128.pnj" alt="John">
-        </v-avatar>
-        <div>
-            <div class="subtitle-1 text-capitalize font-weight-bold light-blue--text text--darken-3 ml-2">Ken Truong</div>
-            <div class="caption text-capitalize font-weight-bold">vừa xong <i class="fas fa-globe-asia"></i></div>
+<div class="show-post" v-if="createPost == true">
+    <v-card v-for="(itemContent,index) in postContent" class="mb-4">
+        <div class="pt-4 px-4 d-flex align-center justify-space-between">
+            <div class="d-flex align-center">
+                <v-avatar size="40">
+                    <img src="https://66.media.tumblr.com/avatar_195f890be964_128.pnj" alt="John">
+                </v-avatar>
+                <div>
+                    <div class="subtitle-1 text-capitalize font-weight-bold light-blue--text text--darken-3 ml-2">Ken Truong</div>
+                    <div class="caption text-capitalize font-weight-bold ml-2 text-left">Vừa xong <i class="ml-1 fas fa-globe-asia"></i></div>
+                </div>
+            </div>
+            <div class="text-center">
+                <v-menu offset-y left bottom>
+                    <template v-slot:activator="{ on }">
+                        <v-btn icon v-on="on">
+                            <i class="cu-p fas fa-ellipsis-h"></i>
+                        </v-btn>
+                    </template>
+                    <v-list>
+                        <v-list-item>
+                            <v-list-item-title class="text-left d-flex align-center cu-p" @click="deletePost(index)">
+                                <span class="material-icons mr-2">delete_outline</span><span>Xóa bài viết</span>
+                            </v-list-item-title>
+                        </v-list-item>
+                        <v-list-item>
+                            <v-list-item-title class="text-left d-flex align-center cu-p" @click="editPost(index)">
+                                <span class="material-icons mr-2">create</span><span>Chỉnh sữa bài viết</span>
+                            </v-list-item-title>
+                        </v-list-item>
+                        <v-list-item>
+                            <v-list-item-title class="text-left d-flex align-center cu-p" @click="savePost()">
+                                <span class="material-icons mr-2">save</span><span>Lưu bài viết</span>
+                            </v-list-item-title>
+                        </v-list-item>
+                        <v-list-item>
+                            <v-list-item-title class="text-left d-flex align-center cu-p" @click="notePost()">
+                                <span class="material-icons mr-2">emoji_flags</span><span>Đánh dấu bài viết</span>
+                            </v-list-item-title>
+                        </v-list-item>
+                        <v-list-item>
+                            <v-list-item-title class="text-left d-flex align-center cu-p" @click="notePost()">
+                                <span class="material-icons mr-2">reply</span><span>Share bài viết dưới dạng</span>
+                            </v-list-item-title>
+                        </v-list-item>
+                    </v-list>
+                </v-menu>
+            </div>
         </div>
-    </div>
-    <!-- <p class="mb-0">{{ customName }}</p> -->
-    <!-- <p class="mb-0">createPost : {{ createPost }} -------------- postContent : {{ postContent }}</p> -->
-    <!-- <p class="mb-0">{{ reverseName() }}</p> -->
-    <!-- <v-btn outlined color="primary" dark @click="hidePost()" class="text-capitalize mt-4"><i class="far fa-eye mr-1"></i> Reverse Name</v-btn> -->
-    <p class="pa-4 mb-0 text-left">{{ postContent.content }}</p>
-    <img :src="postContent.img" alt="" class="img-content-post">
+        <!-- <p class="mb-0">{{ customName }}</p> -->
+        <!-- <p class="mb-0">createPost : {{ createPost }} -------------- postContent : {{ postContent }}</p> -->
+        <!-- <p class="mb-0">{{ reverseName() }}</p> -->
+        <!-- <v-btn outlined color="primary" dark @click="hidePost()" class="text-capitalize mt-4"><i class="far fa-eye mr-1"></i> Reverse Name</v-btn> -->
+        <div class="pa-4 mt-1 mb-0 text-left" :class="itemContent.backgroundsId == '' ? 'div-show-content' : itemContent.backgroundsId + ' ' + 'div-show-content-background' + ' ' + 'flex-center'">{{ itemContent.content }}</div>
+        <img :src="itemContent.img" alt="" class="img-content-post">
+    </v-card>
 </div>

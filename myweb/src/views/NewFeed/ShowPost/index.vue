@@ -18,8 +18,9 @@ export default {
 		);
 		this.$vueEventBus.$on(
 			"contentPost",
-			val => (this.postContent = val)
+			val => (this.postContent.unshift(val))
 		);
+		console.log(this.postContent);
 	},
 	methods: {
 		// reverseName() {
@@ -30,7 +31,22 @@ export default {
 			// this.showPost = !this.showPost
 			// this.$emit('closePost', this.showPost)
 			this.$emit('closePost', 'Hoài')
-		}
+		},
+		deletePost(index) {
+			this.postContent.splice(index,1);
+		},
+		editPost(){
+			console.log('editPost');
+		},
+		savePost() {
+			console.log('savePost');
+		},
+		notePost() {
+			console.log('notePost');
+		},
+		sharePost() {
+			console.log('sharePost');
+		},
 	},
 	watch: {
 		// closePost() {
@@ -41,8 +57,8 @@ export default {
 </script>
 
 <style scoped>
-	.show-post .img-content-post{
-		width: 100%;
-		height: auto;
-	}
+.show-post .img-content-post {
+	width: 100%;
+	height: auto;
+}
 </style>
