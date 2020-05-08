@@ -35,12 +35,12 @@
                         <div class="create-post mb-4">
                             <CreatePost />
                         </div>
-
                         <!-- <v-btn outlined color="primary" dark @click="Post()" class="text-capitalize mt-4"><i class="far fa-eye mr-1"></i> Show Demo</v-btn> -->
                         <ShowPost :showPost="statusPost" :customName="name" @closePost="closePost()" />
                         <v-card>
                             <GridCss />
                         </v-card>
+                        <ActionCssByVarName />
                         <v-card>
                             <v-skeleton-loader ref="skeleton" :boilerplate="boilerplate" :type="type" :tile="tile" class="mx-auto"></v-skeleton-loader>
                         </v-card>
@@ -58,14 +58,45 @@
                     <div class="right-bar d-flex justify-end">
                         <v-list subheader>
                             <v-subheader>Recent chat</v-subheader>
+                            <v-list-item v-for="item in listFriends" :key="item.title" @click="">
+                                <div class="text-center">
+                                    <v-menu open-on-hover left nudge-left="0px" offset-x max-width="330" min-width="330" content-class="info-friend-hover">
+                                        <template v-slot:activator="{ on }">
+                                            <div class="avartar" v-on="on">
+                                                <img :src="item.link" class="img-avatar my-1 mr-2" alt="">
+                                                <div class="status"></div>
+                                            </div>
+                                      </template>
 
-                            <v-list-item v-for="item in items" :key="item.title" @click="">
-                                <v-list-item-avatar>
-                                    <v-img :src="item.avatar"></v-img>
-                                </v-list-item-avatar>
-
+                                        <v-list class="px-2 py-4">
+                                            <!-- <v-card> -->
+                                            <img :src="item.link" class="img-avatar-hover pt-2" alt="">
+                                            <p>{{ item.name }}</p>
+                                            <div class="action">
+                                                <v-btn class="ma-1" outlined color="white">
+                                                    <i class="fab fa-facebook-messenger mr-1"></i>Nhắn tin
+                                                </v-btn>
+                                                <v-btn class="ma-1" outlined color="white">
+                                                    <i class="fas fa-user-tag"></i>
+                                                </v-btn>
+                                                <v-btn class="ma-1" outlined color="white">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </v-btn>
+                                            </div>
+                                            <!-- </v-card> -->
+                                        </v-list>
+                                    </v-menu>
+                                </div>
+                                <!-- <v-list-item-avatar>
+                                    <v-img :src="item.link"></v-img>
+                                    <div class="status"></div>
+                                </v-list-item-avatar> -->
+                                <!-- <div class="avartar">
+                                    <img :src="item.link" class="img-avatar my-1 mr-2" alt="">
+                                    <div class="status"></div>
+                                </div> -->
                                 <v-list-item-content>
-                                    <v-list-item-title v-text="item.title" class="text-left"></v-list-item-title>
+                                    <v-list-item-title v-text="item.name" class="name-friends text-left"></v-list-item-title>
                                 </v-list-item-content>
 
                                 <v-list-item-icon>

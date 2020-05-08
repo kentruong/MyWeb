@@ -1,5 +1,40 @@
+.divcontainer {
+    background-image: linear-gradient(to right bottom, #ffa400, #e74c3c);
+    height: auto;
+    display: grid;
+    /* grid-template-columns: 1fr 2fr; */
+    grid-template-columns: repeat(5, 20%);
+}
+
+.item {
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 2px solid orange;
+}
+
+.item2 {
+    grid-column: 1 / 4;
+}
+
+.item3 {
+    grid-row: 2 / 4;
+}
+
+.item10 {
+    grid-column: span 1 / 5
+}
+
 .container-grid-css .content {
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: repeat(2, 100px);
+    grid-gap: 10px;
+    grid-auto-flow: dense
 }
 
 .container-grid-css .content div {

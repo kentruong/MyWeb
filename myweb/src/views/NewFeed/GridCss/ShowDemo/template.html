@@ -1,0 +1,23 @@
+<div class="show-demo">
+    <v-dialog v-model="dialog" width="600px" content-class="show-demo" hieght="500px">
+        <template v-slot:activator="{ on }">
+            <v-btn text color="primary" class="text-capitalize" v-on="on"><i class="far fa-eye mr-1"></i> Show Demo</v-btn>
+        </template>
+        <v-card>
+            <v-card-title>
+                <span class="headline">Grid-Css -- dense</span>
+            </v-card-title>
+            <v-card-text>
+                <div class="gallery ">
+                    <div class="div-items" v-for="(item, index) in gallerys" :key="index" :style="{backgroundImage:`url(${item.link})`}">
+                        {{ index }}
+                    </div>
+                </div>
+            </v-card-text>
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="green darken-1" text @click="dialog = false">Hide</v-btn>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
+</div>

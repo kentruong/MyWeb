@@ -1,4 +1,4 @@
-<div class="container-grid-css my-4 text-left pa-4">
+<div class="container-grid-css my-4 text-left pa-4" v-if="activePost == true">
     <div class="mb-4 d-flex align-center justify-space-between">
         <div class="d-flex align-center">
             <v-avatar size="40">
@@ -17,6 +17,11 @@
                     </v-btn>
                 </template>
                 <v-list>
+                    <v-list-item>
+                        <v-list-item-title class="text-left d-flex align-center cu-p" @click="activePost = false">
+                            <span class="material-icons mr-2">delete_outline</span><span>Xóa bài viết</span>
+                        </v-list-item-title>
+                    </v-list-item>
                     <v-list-item v-for="(item, index) in items" :key="index" @click="">
                         <v-list-item-title class="text-left d-flex align-center">
                             <span class="material-icons mr-2">{{ item.icon }}</span><span>{{ item.title }}</span>
@@ -27,12 +32,63 @@
         </div>
     </div>
     <p>Giới thiệu về kĩ thuật CSS Grid dàn Layouts</p>
-    <v-btn outlined color="primary" dark @click="show = true" class="text-capitalize" v-if="show == false"><i class="far fa-eye mr-1"></i> Show Demo</v-btn>
-    <v-btn outlined color="primary" dark @click="show = false" class="text-capitalize" v-else><i class="far fa-eye-slash mr-1"></i> Hide Demo</v-btn>
+    <div class="d-flex align-center">
+        <v-btn text color="primary" dark @click="show = true" class="text-capitalize mr-2" v-if="show == false"><i class="far fa-eye mr-1"></i> Xem Thêm</v-btn>
+        <v-btn text color="primary" dark @click="show = false" class="text-capitalize mr-2" v-else><i class="far fa-eye-slash mr-1"></i> Hide Demo</v-btn>
+        <ShowDemo />
+    </div>
     <v-img src="https://images.viblo.asia/74913ae5-58b9-4253-80a7-9c021a22ec1a.png" aspect-ratio="1.7" class="mt-4 img-content"></v-img>
     <div v-if="show == true" class="mt-4">
-        <div class="content">
-            <div class="pa-8 text-center" v-for="(i, index) in 10">{{ index+1 }}</div>
+        <p class="mb-2">
+            <span class="blue--text">Bài hơi dài chịu khó đọc nhé</span>
+        </p>
+        <div class="divcontainer mt-4 pa-4">
+            <div class="item item1 pa-4">1</div>
+            <div class="item item2 pa-4">grid-column: 1 / 4</div>
+            <div class="item item3 pa-4">grid-row: 2 / 4;</div>
+            <div class="item item4 pa-4">4</div>
+            <div class="item item5 pa-4">5</div>
+            <div class="item item6 pa-4">6</div>
+            <div class="item item7 pa-4">7</div>
+            <div class="item item8 pa-4">8</div>
+            <div class="item item9 pa-4">9</div>
+            <div class="item item10 pa-4">grid-column: span 1 / 6</div>
+        </div>
+        <div class="content pt-4">
+            <div class="pa-8 text-center" v-for="(i, index) in 14">{{ index+1 }}</div>
+            <div class="pa-8 text-center">Demo 2 Lorem ipsum bla blablablablalbalba soluta facere!</div>
+        </div>
+        <div class="note pt-4">
+            <p class="mb-2">
+                <span class="pink--text"># grid-template-columns</span> <span>Đơn vị ở đây các bạn có thể dùng px, %, em rem, auto,fr</span>
+            </p>
+            <p class="mb-0">
+                <span class="pink--text"># grid-template-rows</span> <span>Đơn vị ở đây các bạn có thể dùng px, %, em rem, auto,fr</span>
+            </p>
+            <p class="mb-0">
+                <span class="pink--text"># grid-gap</span> <span> thuộc tính này giúp chúng ta tạo khoảng cách giữa các phần tử với nhau theo cột và hàng. Thuộc tính này bao gồm thuộc tính <span class="pink--text">grid-row-gap</span> và <span class="pink--text">grid-column-gap</span>                được viết như sau <span class="pink--text">grid-gap: grid-row-gap grid-column-gap.</span></span>
+            </p>
+            <p class="mb-0">
+                <span class="pink--text"># grid-auto-flow</span> <span>Ở trường hợp khi có một hoặc nhiều phần tử bị dư do không đủ cột hay hàng thì nó sẽ rớt xuống tạo nên hàng mới. Thì mình muốn set cho các phần tử bị rớt ra tạo nên Implicit Tracks có chiều cao nhất định nào đó. Chúng ta sẽ dùng thuộc tính <span class="pink--text">grid-auto-flow: row </span>                kết hợp với thuộc tính <span class="pink--text">grid-auto-rows </span> để set cho các phần tử đó</span>
+            </p>
+            <p class="mb-0">
+                <span class="pink--text"># repeat</span> <span>cách viết : <span class="pink--text">grid-template-columns: repeat(5, 20%)</span> trong đó 5 là số cột muốn tạo còn 20% là đơn vị chúng ta sẽ dùng. Nếu bạn muốn tạo 6 cột có cột đầu tiên và
+                cột cuối cùng độ rộng là 10% còn 4 cột ở giữa mỗi cột 20% thì đơn giản chúng ta viết thế này <span class="pink--text">grid-template-columns: 10% repeat(4,20%) 10%.</span></span>
+            </p>
+            <p class="mb-0">
+                <span class="pink--text"># grid-column</span>
+                <span>Thuộc tính này giúp chúng ta thiết lập vị trí và kích thước của phần tử theo cột. Nó là viết tắt của 2 thuộc tính <span class="pink--text">grid-column-start và grid-column-end</span>. Cú pháp của nó như sau <span class="pink--text">grid-column: grid-column-start / grid-column-end.</span></span>
+                <span>Trong đó giá trị của <span class="pink--text">grid-column-start</span> và <span class="pink--text">grid-column-end</span> là các <span class="pink--text">tracks line</span></span>
+            </p>
+            <p class="mb-0">
+                <span class="pink--text"># grid-row</span>
+                <span>Cũng như trên nhưng thuộc tính này giúp chúng ta thiết lập vị trí và kích thước của phần tử theo hàng. Thuộc tính này được viết tắt của 2 thuộc tính <span class="pink--text">grid-row-start và grid-row-end</span>. Cú pháp của nó như
+                sau <span class="pink--text">grid-row: grid-row-start / grid-row-end.</span></span>
+                <span>Trong đó giá trị của <span class="pink--text">grid-column-start</span> và <span class="pink--text">grid-column-end</span> là các <span class="pink--text">tracks line</span></span>
+            </p>
+            <p class="mb-0">
+                <span class="pink--text"># grid-template-areas ==> <a href="https://evondev.com/css-grid-toan-tap-phan-1/" class="blue--text">xem thêm</a></span>
+            </p>
         </div>
     </div>
 </div>

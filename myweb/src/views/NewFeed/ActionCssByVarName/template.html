@@ -1,13 +1,13 @@
-<div class="show-post" v-if="createPost == true">
-    <v-card v-for="(itemContent,index) in postContent" class="mb-4" :key="index">
-        <div class="pt-4 px-4 d-flex align-center justify-space-between">
+<v-card>
+    <div class="pa-4 mb-4 action-css-by-var-name" v-if="activePost == true">
+        <div class="mb-4 d-flex align-center justify-space-between">
             <div class="d-flex align-center">
                 <v-avatar size="40">
                     <img src="https://66.media.tumblr.com/avatar_195f890be964_128.pnj" alt="John">
                 </v-avatar>
                 <div>
                     <div class="subtitle-1 text-capitalize font-weight-bold light-blue--text text--darken-3 ml-2">Ken Truong</div>
-                    <div class="caption text-capitalize font-weight-bold ml-2 text-left">Vừa xong <i class="ml-1 fas fa-globe-asia"></i></div>
+                    <div class="caption text-capitalize font-weight-bold ml-2">Được tài trợ <i class="fas fa-globe-asia"></i></div>
                 </div>
             </div>
             <div class="text-center">
@@ -19,27 +19,27 @@
                     </template>
                     <v-list>
                         <v-list-item>
-                            <v-list-item-title class="text-left d-flex align-center cu-p" @click="deletePost(index)">
+                            <v-list-item-title class="text-left d-flex align-center cu-p" @click="activePost = false">
                                 <span class="material-icons mr-2">delete_outline</span><span>Xóa bài viết</span>
                             </v-list-item-title>
                         </v-list-item>
                         <v-list-item>
-                            <v-list-item-title class="text-left d-flex align-center cu-p" @click="editPost(index)">
+                            <v-list-item-title class="text-left d-flex align-center cu-p">
                                 <span class="material-icons mr-2">create</span><span>Chỉnh sữa bài viết</span>
                             </v-list-item-title>
                         </v-list-item>
                         <v-list-item>
-                            <v-list-item-title class="text-left d-flex align-center cu-p" @click="savePost()">
+                            <v-list-item-title class="text-left d-flex align-center cu-p">
                                 <span class="material-icons mr-2">save</span><span>Lưu bài viết</span>
                             </v-list-item-title>
                         </v-list-item>
                         <v-list-item>
-                            <v-list-item-title class="text-left d-flex align-center cu-p" @click="notePost()">
+                            <v-list-item-title class="text-left d-flex align-center cu-p">
                                 <span class="material-icons mr-2">emoji_flags</span><span>Đánh dấu bài viết</span>
                             </v-list-item-title>
                         </v-list-item>
                         <v-list-item>
-                            <v-list-item-title class="text-left d-flex align-center cu-p" @click="notePost()">
+                            <v-list-item-title class="text-left d-flex align-center cu-p">
                                 <span class="material-icons mr-2">reply</span><span>Share bài viết dưới dạng</span>
                             </v-list-item-title>
                         </v-list-item>
@@ -47,11 +47,11 @@
                 </v-menu>
             </div>
         </div>
-        <!-- <p class="mb-0">{{ customName }}</p> -->
-        <!-- <p class="mb-0">createPost : {{ createPost }} -------------- postContent : {{ postContent }}</p> -->
-        <!-- <p class="mb-0">{{ reverseName() }}</p> -->
-        <!-- <v-btn outlined color="primary" dark @click="hidePost()" class="text-capitalize mt-4"><i class="far fa-eye mr-1"></i> Reverse Name</v-btn> -->
-        <div class="pa-4 mt-1 mb-0 text-left" :class="itemContent.backgroundsId == '' ? 'div-show-content' : itemContent.backgroundsId + ' ' + 'div-show-content-background' + ' ' + 'flex-center'">{{ itemContent.content }}</div>
-        <img :src="itemContent.img" alt="" class="img-content-post">
-    </v-card>
-</div>
+        <div class="result-demo pa-4" :style="{ 'background-color' : backGrounDiv}">
+            <p v-if="show == false" :style="{ 'color' : textColor}">Enter code color for div (#fff or red)</p>
+            <input type="text" class="px-2 mb-4 input-backGrounDiv" :style="{ 'color' : textColor}" v-if="show == false" v-model="backGrounDiv" placeholder="Enter color for div #fff or red">
+            <p class="mb-0" :style="{ 'color' : textColor}" v-if="show == true">Demo Thay Đổi Css by VueJs <i class="far fa-eye ml-1 cu-p" @click="show = !show"></i></p>
+            <p class="mb-0" :style="{ 'color' : textColor}" v-else>Demo Thay Đổi Css by VueJs <i class="far fa-eye-slash ml-1 cu-p" @click="show = !show"></i></p>
+        </div>
+    </div>
+</v-card>
