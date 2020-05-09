@@ -5,12 +5,13 @@
                 <div class="container-header d-flex align-center justify-space-between">
                     <div class="d-flex align-center group-logo">
                         <div class="logo flex-center">
-                            <router-link :to="{name: 'Home'}">
+                            <!-- <router-link :to="{name: 'Home'}">
                                 <v-avatar size="40">
                                     <img src="@/assets/images/logo.png" alt="Zsolution">
                                 </v-avatar>
-                            </router-link>
-
+                            </router-link> -->
+                            <span class="font-weight-bold">Porn</span>
+                            <span class="font-weight-bold ml-1 py-1 px-2 black--text orange top-logo">hub</span>
                         </div>
                         <div class="topSearch d-flex align-center justify-space-between px-2">
                             <!-- <input type="text" placeholder="Enter key search ..." class="input-search flex-1 px-2">
@@ -38,6 +39,28 @@
                                             <div v-else class="px-8 py-4 cu-p items">
                                                 <a href="#">
                                                     <span class="material-icons">{{ n.icon }}</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </v-item>
+                                </li>
+                                <li v-ripple>
+                                    <v-item v-slot:default="{ active, toggle }">
+                                        <div class="" :color="active ? 'primary' : ''" dark @click="toggle">
+                                            <!-- {{ n.icon }} -->
+
+                                            <div v-if="active" class="px-8 py-4 cu-p items li-active">
+                                                <a href="#">
+                                                    <v-badge color="red" content="9+" bordered overlap>
+                                                        <span class="material-icons">textsms</span>
+                                                    </v-badge>
+                                                </a>
+                                            </div>
+                                            <div v-else class="px-8 py-4 cu-p items">
+                                                <a href="#">
+                                                    <v-badge color="red" content="9+" bordered overlap>
+                                                        <span class="material-icons">textsms</span>
+                                                    </v-badge>
                                                 </a>
                                             </div>
                                         </div>
@@ -83,6 +106,9 @@
                             <span class="name mx-2 subtitle-1 font-weight-bold text-capitalize" v-html="linkFacebook"></span>
                             <!-- <v-badge color="red" content="0"> <span class="icon-notifycation"><i
                                                 class="far fa-bell"></i></span> </v-badge> -->
+                            <v-btn small outlined fab class="mx-1">
+                                <i class="fas fa-plus"></i>
+                            </v-btn>
                             <v-btn small outlined fab class="mx-1">
                                 <i class="fab fa-facebook-messenger"></i>
                             </v-btn>

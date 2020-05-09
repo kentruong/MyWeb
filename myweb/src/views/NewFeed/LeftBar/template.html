@@ -1,0 +1,55 @@
+<div class="container-left-bar d-flex justify-start">
+    <div class="left-bar">
+        <perfect-scrollbar>
+            <div class="hover-sroll">
+                <v-list subheader>
+                    <v-list-item @click="">
+                        <v-list-item-avatar>
+                            <v-img src="https://khodohoa.vn/wp-content/uploads/2019/09/43085005925_e203edfc0c_h.jpg"></v-img>
+                        </v-list-item-avatar>
+
+                        <v-list-item-content>
+                            <v-list-item-title v-text="name" class="text-left"></v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                    <v-list-item v-for="item in firtArray" :key="item.title" @click="">
+                        <v-list-item-avatar>
+                            <v-img :src="item.avatar"></v-img>
+                        </v-list-item-avatar>
+
+                        <v-list-item-content>
+                            <v-list-item-title v-text="item.title" class="text-left"></v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                    <div class="mx-4 mb-4 mt-2">
+                        <v-btn outlined block @click="loadmore()">
+                            Xem Thêm {{ item1s.length }}
+                            <span class="material-icons">keyboard_arrow_down</span>
+                        </v-btn>
+                    </div>
+                    <v-divider class="mb-2"></v-divider>
+                    <v-list-item v-for="item in item2s" :key="item.title" @click="">
+                        <v-list-item-avatar>
+                            <v-img :src="item.avatar"></v-img>
+                        </v-list-item-avatar>
+
+                        <v-list-item-content>
+                            <v-list-item-title v-text="item.title" class="text-left"></v-list-item-title>
+                        </v-list-item-content>
+
+                        <v-list-item-icon>
+                            <!-- <v-icon :color="item.active ? 'deep-purple accent-4' : 'grey'">chat_bubble</v-icon> -->
+                            <span class="notifys">{{ item.notifys }}</span>
+                        </v-list-item-icon>
+                    </v-list-item>
+                    <div class="ma-4">
+                        <v-btn outlined block>
+                            Xem Thêm
+                            <span class="material-icons">keyboard_arrow_down</span>
+                        </v-btn>
+                    </div>
+                </v-list>
+            </div>
+        </perfect-scrollbar>
+    </div>
+</div>

@@ -25,7 +25,7 @@ export default {
             {icon: 'home'},
             {icon: 'description'},
             {icon: 'live_tv'},
-            {icon: 'textsms'},
+            // {icon: 'textsms'},
 		],
 		linkFacebook: '<a href="https://www.facebook.com/" target="_blank">Anh Khoa</a>'
 	}),

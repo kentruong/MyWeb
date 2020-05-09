@@ -1,0 +1,181 @@
+<div class="container-right-bar d-flex justify-end">
+    <div class="right-bar d-flex justify-end">
+        <perfect-scrollbar>
+            <v-list subheader class="hover-sroll">
+                <div class="pa-4 text-left">
+                    <span class="font-weight-bold">Được tài trợ</span>
+                    <div class="mb-4 mt-2 d-flex align-center justify-space-between">
+                        <div class="d-flex align-center">
+                            <v-avatar size="40">
+                                <img src="https://downloaderpro.video/static/img/sources/x-videos.png" alt="John">
+                            </v-avatar>
+                            <div>
+                                <div class="subtitle-1 text-capitalize font-weight-bold ml-2"><span class="red--text">XXX</span>VIDEO</div>
+                                <div class="caption text-capitalize font-weight-bold ml-2">Zsolution</div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <v-menu offset-y left bottom content-class="menu-action-sponsor" max-width="350" min-width="350">
+                                <template v-slot:activator="{ on }">
+                                    <v-btn icon v-on="on">
+                                        <i class="cu-p fas fa-ellipsis-h"></i>
+                                    </v-btn>
+                                </template>
+                                <v-list>
+                                    <v-list-item @click="" class="px-0" :ripple="false">
+                                        <v-list-item-title>
+                                            <div class="text-left mx-4 d-flex align-center justify-space-between">
+                                                <span class="cu-p d-flex align-center"><span class="material-icons mr-2 font-weight-thin">help_outline</span><span class="font-weight-bold">Tại sao tôi thấy quảng cáo này</span></span>
+                                            </div>
+                                        </v-list-item-title>
+                                    </v-list-item>
+                                    <v-list-item @click="" class="px-0" :ripple="false">
+                                        <v-list-item-title>
+                                            <div class="text-left mx-4 d-flex align-center justify-space-between">
+                                                <span class="cu-p d-flex align-center"><span class="material-icons mr-2 font-weight-thin">block</span><span class="font-weight-bold">Ẩn quản cáo</span></span>
+                                            </div>
+                                        </v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://khodohoa.vn/wp-content/uploads/2019/09/29055728017_bd8c8a5806_o.jpg" alt="xxxvideo.com" class="img-sponsor">
+                        <img src="https://khodohoa.vn/wp-content/uploads/2019/09/43085005925_e203edfc0c_h.jpg" alt="xxxvideo.com" class="img-sponsor">
+                        <img src="https://khodohoa.vn/wp-content/uploads/2019/09/42183822570_431c40ec7f_o.jpg" alt="xxxvideo.com" class="img-sponsor">
+                    </div>
+                </div>
+                <v-divider></v-divider>
+                <v-subheader class="pt-10 mb-4">
+
+                    <v-text-field placeholder="Tìm kiếm ..." dense outlined rounded append-icon="search" class="txt-search mb-0 mt-2" v-model="filterListFriends"></v-text-field>
+                    <div class="text-center">
+                        <v-menu offset-y content-class="menu-action-messenger" :close-on-content-click="false" max-width="400" min-width="400">
+                            <template v-slot:activator="{ on }">
+                                <v-btn icon v-on="on" class="ml-2 mb-4">
+                                    <i class="cu-p fas fa-ellipsis-h"></i>
+                                </v-btn>
+                            </template>
+                            <v-list>
+                                <v-list-item @click="">
+                                    <v-list-item-title>
+                                        <div class="text-left py-4">
+                                            <span class="font-weight-bold cu-p">Cài đặt chat</span>
+                                            <p class="text-left caption">Tùy Chỉnh trải nghiệm trên messenger</p>
+                                        </div>
+                                    </v-list-item-title>
+                                </v-list-item>
+                                <v-divider></v-divider>
+                                <v-list-item @click="" class="px-0" :ripple="false">
+                                    <v-list-item-title>
+                                        <div class="text-left mx-4 d-flex align-center justify-space-between">
+                                            <span class="font-weight-bold cu-p d-flex align-center"><span class="material-icons mr-2">phone_callback</span>Âm thanh cuộc gọi đến</span>
+                                            <v-switch></v-switch>
+                                        </div>
+                                    </v-list-item-title>
+                                </v-list-item>
+                                <v-list-item @click="" class="px-0" :ripple="false">
+                                    <v-list-item-title>
+                                        <div class="text-left mx-4 d-flex align-center justify-space-between">
+                                            <span class="font-weight-bold cu-p d-flex align-center"><span class="material-icons mr-2">volume_up</span>Âm thanh chat</span>
+                                            <v-switch></v-switch>
+                                        </div>
+                                    </v-list-item-title>
+                                </v-list-item>
+                                <v-list-item @click="" class="px-0" :ripple="false">
+                                    <v-list-item-title>
+                                        <div class="text-left mx-4 d-flex align-center justify-space-between">
+                                            <span class="font-weight-bold cu-p d-flex align-center"><span class="material-icons mr-2">forum</span>Tab chat</span>
+                                            <v-switch></v-switch>
+                                        </div>
+                                    </v-list-item-title>
+                                </v-list-item>
+                                <v-divider></v-divider>
+                                <v-list-item @click="" class="px-0" :ripple="false">
+                                    <v-list-item-title>
+                                        <div class="text-left mx-4 d-flex align-center justify-space-between">
+                                            <span class="font-weight-bold cu-p d-flex align-center"><span class="material-icons mr-2">contacts</span>Hiển thị danh bạ</span>
+                                            <v-switch></v-switch>
+                                        </div>
+                                    </v-list-item-title>
+                                </v-list-item>
+                                <v-divider></v-divider>
+                                <v-list-item @click="" class="px-0" :ripple="false">
+                                    <v-list-item-title>
+                                        <div class="text-left mx-4 d-flex align-center justify-space-between">
+                                            <span class="font-weight-bold cu-p d-flex align-center"><span class="material-icons mr-2">how_to_reg</span>Tắt trạng thái hoạt động</span>
+                                        </div>
+                                    </v-list-item-title>
+                                </v-list-item>
+                                <v-list-item @click="" class="px-0" :ripple="false">
+                                    <v-list-item-title>
+                                        <div class="text-left mx-4 d-flex align-center justify-space-between">
+                                            <span class="font-weight-bold cu-p d-flex align-center"><span class="material-icons mr-2">remove_circle</span>Cài đặt chặn</span>
+                                            <v-switch></v-switch>
+                                        </div>
+                                    </v-list-item-title>
+                                </v-list-item>
+                            </v-list>
+                        </v-menu>
+                    </div>
+                </v-subheader>
+                <v-list-item v-for="item in filtered" :key="item.title" @click="">
+                    <div class="text-center">
+                        <v-menu open-on-hover left nudge-left="0px" offset-x max-width="330" min-width="330" content-class="info-friend-hover">
+                            <template v-slot:activator="{ on }">
+                                <div class="avartar" v-on="on">
+                                    <img :src="item.link" class="img-avatar my-1 mr-2" alt="">
+                                    <div class="status"></div>
+                                </div>
+                            </template>
+                            <v-list class="px-2 py-4">
+                                <!-- <v-card> -->
+                                <img :src="item.link" class="img-avatar-hover pt-2" alt="">
+                                <p class="font-weight-bold cu-p">{{ item.name }}</p>
+                                <p class="px-4 text-left caption"><i class="fas fa-user-check mr-1"></i> Đã trở thành bạn bè với <span class="font-weight-bold cu-p">Nguyễn Xuân Phúc</span></p>
+                                <p class="px-4 text-left caption"><i class="fas fa-users mr-1"></i>Có 9 bạn chung Bao gồm <span class="font-weight-bold cu-p">Trump</span> và <span class="font-weight-bold cu-p">Putin</span></p>
+                                <div class="action">
+                                    <v-btn class="ma-1 text-capitalize" outlined color="white">
+                                        <i class="fab fa-facebook-messenger mr-1"></i>Nhắn tin
+                                    </v-btn>
+                                    <v-btn class="ma-1" outlined color="white">
+                                        <i class="fas fa-user-tag"></i>
+                                    </v-btn>
+                                    <v-btn class="ma-1" outlined color="white">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </v-btn>
+                                </div>
+                                <!-- </v-card> -->
+                            </v-list>
+                        </v-menu>
+                    </div>
+                    <!-- <v-list-item-avatar>
+                    <v-img :src="item.link"></v-img>
+                    <div class="status"></div>
+                </v-list-item-avatar> -->
+                    <!-- <div class="avartar">
+                    <img :src="item.link" class="img-avatar my-1 mr-2" alt="">
+                    <div class="status"></div>
+                </div> -->
+                    <v-list-item-content>
+                        <v-list-item-title v-text="item.name" class="name-friends text-left"></v-list-item-title>
+                    </v-list-item-content>
+
+                    <v-list-item-icon>
+                        <!-- <v-icon :color="item.active ? 'deep-purple accent-4' : 'grey'">chat_bubble</v-icon> -->
+                        <span class="notifys">{{ item.notifys }}</span>
+                        <span class="notifys">{{ item.time }}</span>
+                    </v-list-item-icon>
+
+                </v-list-item>
+                <v-list-item>
+                    <div class="text-center loading-messenger">
+                        <v-progress-circular indeterminate size="30"></v-progress-circular>
+                    </div>
+                </v-list-item>
+            </v-list>
+        </perfect-scrollbar>
+    </div>
+
+</div>
